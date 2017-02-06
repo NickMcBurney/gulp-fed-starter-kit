@@ -1,0 +1,109 @@
+// put styles here
+// scss will be minified and saved to /dist/styles/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+body {
+	background: #D5D5D5;
+	font-family: Open Sans;
+	font-weight: 300;
+	font-size: 15px;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.chat {
+	background: #FFF;
+	padding: 20px;
+	margin: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	height: calc(100vh - 40px);
+	width: calc(100vw - 40px);
+	overflow-y: scroll;
+	> div { // step holder
+		display: flex;
+		//flex-basis: 100%;
+    	flex-wrap: wrap;
+		
+		> div { // step questions
+			padding: 5px 10px;
+			border-radius: 5px;
+			flex-basis: 80%;
+			margin-bottom: 10px;
+			transition: all ease 200ms;
+			&.hide { // hidden
+				//display: none;
+				opacity: 0;
+				margin-top: 15px;
+			}
+		}
+	}
+	.chat-bot {
+		background: #F5F5F5;
+		&.chat-result {
+			p {
+				margin: 0 0 5px;
+				font-size: 14px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+			span {
+				//display: block;
+			}
+		}
+	}
+	
+	.chat-user {
+		display: flex;
+		justify-content: flex-end;
+		flex-basis: 100%;
+		
+		// chat action (buttons)
+		&.chat-action {
+			padding: 0;
+			flex-wrap: wrap;
+			// chat action options (single buttons)
+			span {
+				background: #339aff;
+				padding: 5px 10px;
+				border-radius: 5px;
+				color: #FFF;
+				font-size: 12px;
+				margin-left: 5px;
+				margin-bottom: 5px;
+				&:after { content: attr(data-value); }
+			}
+		}
+		
+		
+		// chat input
+		&.chat-input {
+			padding: 0;
+			padding-left: 20%;
+			// chat input element
+			input {
+				border: 0 none;
+				border-bottom: 1px solid #92c9ff;
+				padding: 10px;
+				width: 100%;
+				margin: 0;
+				font-family: Open Sans;
+				font-size: 15px;
+				color: darken(#92c9ff, 15%); 
+				text-align: right;
+			}
+			// user completed action
+			&.complete {
+				background: #92c9ff;
+			}
+		}
+	}
+	
+}
